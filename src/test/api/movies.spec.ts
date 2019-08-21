@@ -4,14 +4,14 @@ import MoviesApi from "../../api/MovieApi";
 const moviesApi: IResource = new MoviesApi();
 
 describe("Movies API", () => {
-  it("should create a new movie", () => {
+  test("should create a new movie", () => {
     const movieData: object = {
       name: "Pirates of the caribbean",
       rating: 8.5
     };
 
-    const movie: object = moviesApi.create(movieData);
+    moviesApi.create(movieData);
 
-    expect(movie).toEqual(movieData);
+    expect(moviesApi.findMany()).toContain({ name: "Pirates of the caribbean", rating: 8.5 });
   });
 });
