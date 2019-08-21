@@ -8,7 +8,6 @@ describe("Movies API", () => {
   test("should create a new movie", () => {
     moviesApi.create(movieData);
     moviesApi.create(movieData2);
-    console.log(moviesApi.findMany());
     expect(moviesApi.findMany()).toContainEqual({ name: "Pirates of the caribbean", rating: 8.5 });
   });
 });
