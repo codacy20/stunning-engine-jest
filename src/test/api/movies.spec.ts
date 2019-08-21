@@ -1,17 +1,14 @@
 import IResource from "../../typings/IResource";
 import MoviesApi from "../../api/MovieApi";
+import { movieData, movieData2 } from "../../mocks/movies";
 
 const moviesApi: IResource = new MoviesApi();
 
 describe("Movies API", () => {
   test("should create a new movie", () => {
-    const movieData: object = {
-      name: "Pirates of the caribbean",
-      rating: 8.5
-    };
-
     moviesApi.create(movieData);
-
-    expect(moviesApi.findMany()).toContain({ name: "Pirates of the caribbean", rating: 8.5 });
+    moviesApi.create(movieData2);
+    console.log(moviesApi.findMany());
+    expect(moviesApi.findMany()).toContainEqual({ name: "Pirates of the caribbean", rating: 8.5 });
   });
 });
